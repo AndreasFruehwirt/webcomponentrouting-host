@@ -16,11 +16,11 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     this.router.initialNavigation();
     //init router with starting path
-    this.router.navigateByUrl(this.location.path(true));
+    /*this.router.navigateByUrl(this.location.path(true));
 
     //on every route change tell router to navigate to defined route
     this.location.subscribe(data => {
       this.router.navigateByUrl(data.url);
-    });
+    });*/
   }
 }
