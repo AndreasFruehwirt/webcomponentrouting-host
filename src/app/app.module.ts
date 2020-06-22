@@ -15,6 +15,9 @@ import { MatListModule } from '@angular/material/list';
 import { PageOneComponent } from './navigation/page-one/page-one.component';
 import { PageTwoComponent } from './navigation/page-two/page-two.component';
 import { PageThreeComponent } from './navigation/page-three/page-three.component';
+import {Router} from "@angular/router";
+import { Location } from "@angular/common";
+
 
 @NgModule({
   declarations: [
@@ -38,12 +41,13 @@ import { PageThreeComponent } from './navigation/page-three/page-three.component
   providers: []
 })
 export class AppModule {
-  constructor(private injector: Injector) {
+  constructor(private router: Router, private location: Location, private injector: Injector) {
+    const elm = createCustomElement(AppComponent, { injector: this.injector });
+    customElements.define('ce-dashboard', elm);
 
   }
 
   ngDoBootstrap() {
-    const elm = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('ce-dashboard', elm);
+
   }
 }
