@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, NavigationStart, Router} from "@angular/router";
 import {Location} from "@angular/common";
 import {HostLocationService} from "./host-location.service";
 
@@ -10,12 +10,26 @@ import {HostLocationService} from "./host-location.service";
 })
 export class AppComponent implements OnInit{
   title = 'dashboard-app';
-  constructor(private router: Router, private location: Location, private hostLocationService: HostLocationService) {
-    this.hostLocationService.handleNavigation();
+  constructor(private router: Router,
+              private location: Location,
+              private hostLocationService: HostLocationService,
+              private route: ActivatedRoute) {
+    this.route.params.subscribe((val) => {
+      console.log('shdkögjhladjkaghlasdkjghl');
+      console.log(val);
+      this.router.navigateByUrl('/banknav-one(page:page-one)');
+      if (val instanceof NavigationStart) {
+
+      }
+    })
+
   }
 
   ngOnInit() {
     this.router.initialNavigation();
+    this.hostLocationService.handleNavigation();
+
+
     //init router with starting path
     /*this.router.navigateByUrl(this.location.path(true));
 

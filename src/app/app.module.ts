@@ -43,7 +43,7 @@ import { EmptyComponentComponent } from './empty-component/empty-component.compo
   providers: []
 })
 export class AppModule {
-  constructor(private router: Router, private location: Location, private injector: Injector) {
+  constructor(private router: Router, private injector: Injector) {
 
   }
 
