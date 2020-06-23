@@ -8,11 +8,10 @@ import {EmptyComponentComponent} from "./empty-component/empty-component.compone
 
 
 const routes: Routes = [
-  { path: 'banknav-one', component: EmptyComponentComponent, children: [
-      { path: 'page-one', component: PageOneComponent, outlet: 'page'},
-      { path: 'page-two', component: PageTwoComponent, outlet: 'page'},
-      { path: 'page-three', component: PageThreeComponent, outlet: 'page'},
-    ]},
+  { path: 'page-one', component: PageOneComponent, outlet: 'page'},
+  { path: 'page-two', component: PageTwoComponent, outlet: 'page'},
+  { path: 'page-three', component: PageThreeComponent, outlet: 'page'},
+  { path: '', redirectTo: '/banknav-one(page:page-one)', pathMatch: 'full' },
   { path: '**', component: EmptyComponentComponent }
 ];
 
@@ -29,7 +28,12 @@ const routes: Routes = [
 })*/
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+  constructor() {
+
+  }
+
+}

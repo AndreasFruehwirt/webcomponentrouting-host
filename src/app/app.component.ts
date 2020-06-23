@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Location} from "@angular/common";
+import {HostLocationService} from "./host-location.service";
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,8 @@ import {Location} from "@angular/common";
 })
 export class AppComponent implements OnInit{
   title = 'dashboard-app';
-  constructor(private router: Router, private location: Location) {
-
+  constructor(private router: Router, private location: Location, private hostLocationService: HostLocationService) {
+    this.hostLocationService.handleNavigation();
   }
 
   ngOnInit() {

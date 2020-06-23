@@ -5,9 +5,9 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['/banknav-one/page-one', {outlets: { outletname:'page'}}]">Page-One</a>
-      <a mat-list-item [routerLink]="['/banknav-one/page-two', {outlets: 'page'}]">Page-Two</a>
-      <a mat-list-item [routerLink]="['/banknav-one/page-three', {outlets: 'page'}]">Page-Three</a>
+      <a mat-list-item [routerLink]="[{outlets: { page:'page-one'}}]">Page-One</a>
+      <a mat-list-item [routerLink]="[{outlets: { page: 'page-two'}}]">Page-Two</a>
+      <a mat-list-item [routerLink]="[{outlets: { page:'page-three'}}]">Page-Three</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -22,6 +22,6 @@
       </button>
       <span>dashboard-app</span>
     </mat-toolbar>
-    <router-outlet name="dashboard"></router-outlet>
+    <router-outlet name="page"></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

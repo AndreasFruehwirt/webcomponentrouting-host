@@ -44,12 +44,15 @@ import { EmptyComponentComponent } from './empty-component/empty-component.compo
 })
 export class AppModule {
   constructor(private router: Router, private location: Location, private injector: Injector) {
-    const elm = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('ce-dashboard', elm);
 
   }
 
   ngDoBootstrap() {
+    const elm = createCustomElement(AppComponent, { injector: this.injector });
+    try {
+      customElements.define('ce-dashboard', elm);
+    } catch (e) {
 
+    }
   }
 }
