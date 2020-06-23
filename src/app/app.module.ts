@@ -17,6 +17,7 @@ import { PageTwoComponent } from './navigation/page-two/page-two.component';
 import { PageThreeComponent } from './navigation/page-three/page-three.component';
 import {Router} from "@angular/router";
 import { Location } from "@angular/common";
+import { EmptyComponentComponent } from './empty-component/empty-component.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { Location } from "@angular/common";
     NavigationComponent,
     PageOneComponent,
     PageTwoComponent,
-    PageThreeComponent
+    PageThreeComponent,
+    EmptyComponentComponent
   ],
   imports: [
     BrowserModule,

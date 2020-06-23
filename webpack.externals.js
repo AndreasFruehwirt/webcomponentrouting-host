@@ -12,7 +12,7 @@ module.exports = {
         "@angular/elements": "ng.elements",
 
         // Uncomment and add to scripts in angular.json if needed
-        "@angular/router": "ng.router",
+        //"@angular/router": "ng.router",
         // "@angular/forms": "ng.forms"
     }
 }
