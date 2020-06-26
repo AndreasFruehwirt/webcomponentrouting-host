@@ -1,14 +1,28 @@
 import { Injectable } from '@angular/core';
-import {NavigationStart, Router} from "@angular/router";
+import {ActivatedRoute, NavigationStart, Router} from "@angular/router";
+import {forkJoin} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class HostLocationService {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private route:ActivatedRoute) { }
 
   public handleNavigation() {
+    let routerEvents$ = this.router.events;
+    let route$ = this.route.params;
+
+    forkJoin({
+      routerEvent: routerEvents$,
+      route: route$
+    }).subscribe({
+      next(value) {
+        console.log(value);
+      }
+    });
+
+
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationStart) {
         console.log(val);

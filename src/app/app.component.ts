@@ -16,11 +16,17 @@ export class AppComponent implements OnInit{
               private route: ActivatedRoute) {
     this.route.params.subscribe((val) => {
       console.log('shdkögjhladjkaghlasdkjghl');
-      console.log(val);
-      this.router.navigateByUrl('/banknav-one(page:page-one)');
-      if (val instanceof NavigationStart) {
+      console.log(this.router.url);
+      console.log(this.route.outlet);
 
-      }
+      /*if (this.router.url.includes('(')) {
+        console.log('doing some magic in because it includes outlet');
+      } else {
+        this.router.navigateByUrl('/banknav-one(page:page-one)');
+        console.log('should do the other stuff');
+      }*/
+
+
     })
 
   }
@@ -38,4 +44,6 @@ export class AppComponent implements OnInit{
       this.router.navigateByUrl(data.url);
     });*/
   }
+
+
 }
