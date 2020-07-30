@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {ActivatedRoute, Router} from "@angular/router";
+import {HostLocationService} from "../host-location.service";
 
 @Component({
   selector: 'app-navigation',
@@ -17,7 +18,10 @@ export class NavigationComponent implements OnInit{
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private route: ActivatedRoute) {
+  constructor(private breakpointObserver: BreakpointObserver,
+              private hostLocationService: HostLocationService,
+              private router: Router,
+              private route: ActivatedRoute) {
     console.log('got initialized');
 
   }
@@ -25,6 +29,7 @@ export class NavigationComponent implements OnInit{
   ngOnInit() {
     console.log(this.route);
     console.log(this.router);
+    this.hostLocationService.handleNavigation();
   }
 
 }
