@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --watch --output-hashing none --single-bundle true --plugin ~build-customization-plugin.js --port=4201",
+    "start": "ng serve --watch --eval-source-map --plugin ~build-customization-plugin.js --output-hashing none --single-bundle true --extra-webpack-config webpack.externals.js  --port=4201",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

@@ -32,7 +32,9 @@ export class MultiLocationStrategyService extends LocationStrategy{
   getBaseHref(): string { return this._baseHref; }
 
   prepareExternalUrl(internal: string, state?: any): string {
-    return this.checkPathAndInternal(this.path(), internal, state);
+    let path = this.checkPathAndInternal(this.path(), internal, state);
+    debugger;
+    return path;
   }
 
   checkPathAndInternal(path: string, internal: string, state: any): string {

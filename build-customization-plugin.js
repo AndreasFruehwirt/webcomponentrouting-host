@@ -7,9 +7,6 @@ exports.default = {
 
 
   config: function (cfg) {
-    //cfg.output.filename = '[name].js';
-
-    console.log('test it');
     const strategy = merge.strategy({
       'devtool': 'replace',
     });

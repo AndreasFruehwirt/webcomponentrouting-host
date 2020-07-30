@@ -17,6 +17,7 @@ import { PageTwoComponent } from './navigation/page-two/page-two.component';
 import { PageThreeComponent } from './navigation/page-three/page-three.component';
 import {Router} from "@angular/router";
 import { Location } from "@angular/common";
+import { EmptyComponentComponent } from './empty-component/empty-component.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { Location } from "@angular/common";
     NavigationComponent,
     PageOneComponent,
     PageTwoComponent,
-    PageThreeComponent
+    PageThreeComponent,
+    EmptyComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -41,13 +43,16 @@ import { Location } from "@angular/common";
   providers: []
 })
 export class AppModule {
-  constructor(private router: Router, private location: Location, private injector: Injector) {
-    const elm = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('ce-dashboard', elm);
+  constructor(private router: Router, private injector: Injector) {
 
   }
 
   ngDoBootstrap() {
+    const elm = createCustomElement(AppComponent, { injector: this.injector });
+    try {
+      customElements.define('ce-dashboard', elm);
+    } catch (e) {
 
+    }
   }
 }
