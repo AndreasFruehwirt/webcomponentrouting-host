@@ -12,7 +12,12 @@ exports.default = {
     });
 
     return strategy(cfg, {
-      devtool: 'inline-source-map'
+      devtool: 'inline-source-map',
+      plugins: [
+        new webpack.DefinePlugin({
+          "VERSION": JSON.stringify("4711")
+        })
+      ]
     });
   },
 
